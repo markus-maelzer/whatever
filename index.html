@@ -3,8 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <title>Document</title>
+
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-dasharray: 50;
+        transition: 1s;
+      }
+    </style>
   </head>
   <body>
-    <h1>asd</h1>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 474.52 137.81">
+      <path
+        class="cls-1"
+        d="M47.5,100.5s5-109,100-62,64,68,126,90,83-58,134-46,71,83,114,81"
+        transform="translate(-47 -26.24)"
+      />
+    </svg>
+
+    <button id="button">click me</button>
+    <script>
+      var path = document.querySelector('.cls-1');
+      path.style.strokeDasharray = path.getTotalLength();
+      path.style.strokeDashoffset = path.getTotalLength();
+
+      var button = document.querySelector('#button');
+      var toggler = true;
+      button.addEventListener('click', function() {
+        if (toggler) {
+          path.style.strokeDashoffset = 0;
+        } else {
+          path.style.strokeDashoffset = path.getTotalLength();
+        }
+        toggler = !toggler;
+      });
+    </script>
   </body>
 </html>
